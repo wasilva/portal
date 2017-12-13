@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Portal de notícias</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<link rel="manifest" href="site.webmanifest">
+		<link rel="apple-touch-icon" href="icon.png">
+		
+		<!-- CSS EJS PAGE NOTICIAS -->
+		<link rel="stylesheet" href="css/app.css">
+
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		<!-- incluindo css -->
+		<link href="css/painel_configuracao_noticias.css" rel="stylesheet">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico" />
+	</head>
+
+	<body>
+
+		<!-- WASINFO SITE APLICATION -->
+<div class="pageHome" mt-none>
+	<div class="menuhomeContainer">
+			<div class="loginBox">
+					<img src="./image/home/web/login_24px.png" class="loginIcon">
+					
+					<a class="active" href="/login"><div class="loginLabel">Login</div></a>
+					
+				 <!-- <a ng-class="{active: activetab == '/login'}"><a href="/login" class="nm-bt"><div class="loginLabel">Login</div></a> -->
+			</div>
+	</div>
+
+	<div class="topnav">
+			<div class="nav nav-tabs">
+				<a href="/noticiapage" class="nm-bt">Notícias</a>
+				
+					<a ng-class="{active: activetab == '/servico'}"><a href="/servico" class="nm-bt">Serviços</a>
+					<a ng-class="{active: activetab == '/contato'}"><a href="/contato" class="nm-bt">Contato</a>
+					<a ng-class="{active: activetab == '/sobre'}"><a href="/sobre" class="nm-bt">Sobre</a>
+			</div>
+	</div>
+
+
+        <nav class="navbar navbar-default navbar-static-top">
+					<nav class="navbar navbar-default navbar-static-top">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								
+							<img src="images/logo.png" />
+							</div>
+			
+							<div id="navbar" class="navbar-collapse collapse">
+								<ul class="nav navbar-nav navbar-right">
+									<li><a href="/formulario_inclusao_noticia">ADICIONAR NOTÍCIA</a></li>
+									<li><a href="/noticias">VER TODAS AS NOTÍCIAS</a></li>
+									<li><a href="/painel_configuracao_noticias">CONFIGURAR</a></li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</nav>
+		
+
+	    <div class="container">
+		
+		 	<div class="row">
+	    		<div class="col-md-12">
+	    			<form action="/noticias/salvar" method="POST">
+						<div class="form-group">
+							<label for="titulo">Quantidade de notícias na pagina inicial.</label>
+							<input type="text" class="form-control" id="quantidade"  name="quantidade">
+						</div>
+						
+						<button type="submit" class="btn btn-default">Cadastrar</button>
+						</form>
+		    	</div>
+	    	</div>
+	    </div>
+	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
+	</body>
+</html>

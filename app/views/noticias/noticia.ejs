@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Portal de notícias</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<link rel="manifest" href="site.webmanifest">
+		<link rel="apple-touch-icon" href="icon.png">
+
+  	<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+	
+		<!-- CSS MENU TOPO -->
+		<link rel="stylesheet" href="css/style.css">
+		
+		<!-- CSS EJS PAGE NOTICIAS -->
+		<link rel="stylesheet" href="css/app.css">
+	
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+					
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico" />
+	</head>
+
+	<body>
+
+	<!-- WASINFO SITE APLICATION -->
+<div class="pageHome" mt-none>
+	<div class="menuhomeContainer">
+			<div class="loginBox">
+					<img src="./images/home/web/login_24px.png" class="loginIcon">
+					
+					<a class="active" href="/login"><div class="loginLabel">Login</div></a>
+					
+				 <!-- <a ng-class="{active: activetab == '/login'}"><a href="/login" class="nm-bt"><div class="loginLabel">Login</div></a> -->
+			</div>
+	</div>
+
+	<div class="topnav">
+			<div class="nav nav-tabs">
+				<a href="/" class="nm-bt">Home</a>
+				<a href="/noticiapage" class="nm-bt">Notícias</a>
+				
+					<a ng-class="{active: activetab == '/servicos'}"><a href="/servicos" class="nm-bt">Serviços</a>
+					<a ng-class="{active: activetab == '/contato'}"><a href="/contato" class="nm-bt">Contato</a>
+					<a ng-class="{active: activetab == '/sobre'}"><a href="/sobre" class="nm-bt">Sobre</a>
+			</div>
+	</div>
+
+
+        <nav class="navbar navbar-default navbar-static-top">
+					<nav class="navbar navbar-default navbar-static-top">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								
+							<img src="images/logo.png" />
+							</div>
+			
+							<div id="navbar" class="navbar-collapse collapse">
+								<ul class="nav navbar-nav navbar-right">
+									<li><a href="/formulario_inclusao_noticia">ADICIONAR NOTÍCIA</a></li>
+									<li><a href="/noticias">VER TODAS AS NOTÍCIAS</a></li>
+									<li><a href="/painel_configuracao_noticias">CONFIGURAR</a></li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</nav>
+		
+
+
+	    <div class="container">
+	    	<div class="row">
+	    		<div class="col-md-12">
+	    			<div class="noticia_wrapper">
+		    			<span class="noticia_autor"><%= noticia[0].autor %></span>
+		    		
+		    			<div class="noticia_titulo"><%= noticia[0].titulo %></div>
+		    			<span class="noticia_data"><%= noticia[0].data_noticia %></span>
+		    			<br />
+		    			<p class="noticia_resumo">
+		    				<%= noticia[0].resumo %>
+							</p>
+							<p class="noticia">
+		    				<%= noticia[0].noticia %>
+		    			</p>
+		    		</div>
+		    	</div>
+	    	</div>
+	    </div>
+	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
+	</body>
+</html>
