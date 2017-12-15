@@ -2,8 +2,7 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-
+  <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Portal de notícias</title>
   <meta name="description" content="">
@@ -12,142 +11,126 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
 
-  <!-- JQuery -->
-  <script src="/js/jquery-2.2.1.js"></script>
+  <!-- Place favicon.ico in the root directory -->
 
-  <!-- CSS MENU TOPO -->
-  <link rel="stylesheet" href="/css/style.css">
+  <!-- JQuery -->
+  <script src="js/jquery-2.2.1.js"></script>
+
+  <!-- MATERIAL ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- CSS EJS PAGE NOTICIAS -->
-  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="css/app.css">
 
   <!-- bootstrap - link cdn -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
     crossorigin="anonymous">
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" href="images/favicon.ico" />
 
 </head>
 
 <body>
   <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
 
   <!-- Add your site or application content here -->
 
-  <!-- WASINFO SITE APLICATION -->
-  <div class="pageHome" mt-none>
-    <div class="menuhomeContainer">
-      <div class="loginBox">
-        <img src="/images/home/web/login_24px.png" class="loginIcon">
-        <a class="active" href="/login">
-          <div class="loginLabel">Login</div>
-        </a>
-        <!-- <a ng-class="{active: activetab == '/login'}"><a href="/login" class="nm-bt"><div class="loginLabel">Login</div></a> -->
-      </div>
-    </div>
-
-    <div class="topnav">
-      <div class="nav nav-tabs">
-        <a href="/" class="nm-bt">Home</a>
-        <a href="/noticiapage" class="nm-bt">Notícias</a>
-
-        <a ng-class="{active: activetab == '/servicos'}">
-          <a href="/servicos" class="nm-bt">Serviços</a>
-          <a ng-class="{active: activetab == '/contato'}">
-            <a href="/contato" class="nm-bt">Contato</a>
-            <a ng-class="{active: activetab == '/sobre'}">
-              <a href="/sobre" class="nm-bt">Sobre</a>
-      </div>
-    </div>
-
-
+  <nav class="navbar navbar-default navbar-static-top">
     <nav class="navbar navbar-default navbar-static-top">
-      <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-              aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
+          <a href="portalnoticias">
             <img src="/images/logo.png" />
-          </div>
+          </a>
+        </div>
 
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a href="/formulario_inclusao_noticia">ADICIONAR NOTÍCIA</a>
-              </li>
-              <li>
-                <a href="/noticias">VER TODAS AS NOTÍCIAS</a>
-              </li>
-              <li>
-                <a href="/painel_configuracao_noticias">CONFIGURAR</a>
-              </li>
-            </ul>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/formulario_inclusao_noticia">CADASTRAR NOTÍCIA</a>
+            </li>
+            <li>
+              <a href="#/painel_configuracao_noticias">CONFIGURAR</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </nav>
+
+
+  <div class="container">
+    <label for="pwd">Pesquisar:</label>
+    <p>
+      <input type="text" class="form-control" id="pesquisar" placeholder="Pesquisar notícias" name="pesquisar" onchange="searchNoticia(this.value)">
+      <a href="/noticias">Ver todas</a>
+    </p>
+
+  </div>
+
+  <div class="container">
+    <% if(noticias.length > 0){ %>
+      <% for(var i = 0; i < noticias.length; i++){ %>
+        <div class="row">
+          <div class="col-md-12">
+
+            <span class="noticia_autor">
+              <%= noticias[i].autor %>
+            </span>
+            <a href="noticia?id_noticia=<%= noticias[i].id_noticia %>" class="noticia_titulo">
+              <%= noticias[i].titulo %>
+            </a>
+            <span class="noticia_data">
+              <%= noticias[i].data_noticia %>
+            </span>
+            <br />
+            <p class="noticia_resumo">
+              <%= noticias[i].resumo %>
+            </p>
           </div>
         </div>
-      </nav>
-    </nav>
+  </div>
+  <% } %>
+    <% } else { %>
+      <div class="row">
+        <div class="col-md-12">
+          Nenhum resultado encontrado!
+        </div>
+      </div>
+      <% } %>
+        </div>
 
+        <div class="row ver_mais">
+          <button type="button" class="btn btn-default">
+            <a href="portalnoticias">Voltar</a>
+          </button>
+        </div>
 
-    <div class="container">
-      <label for="pwd">Pesquisar:</label>
-      <p>
-        <input type="text" class="form-control" id="pesquisar" placeholder="Pesquisar notícias" name="pesquisar" onchange="searchNoticia(this.value)">
-      </p>
-    </div>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+          crossorigin="anonymous"></script>
 
-    <div class="container">
-      <% if(noticias.length > 0){ %>
-        <% for(var i = 0; i < noticias.length; i++){ %>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="noticia_wrapper">
-                <span class="noticia_autor">
-                  <%= noticias[i].autor %>
-                </span>
-                <a href="noticia?id_noticia=<%= noticias[i].id_noticia %>" class="noticia_titulo">
-                  <%= noticias[i].titulo %>
-                </a>
-                <span class="noticia_data">
-                  <%= noticias[i].data_noticia %>
-                </span>
-                <br />
-                <p class="noticia_resumo">
-                  <%= noticias[i].resumo %>
-                </p>
-              </div>
-            </div>
-          </div>
-          <% } %>
-        <% } else { %>
-          <div class="row">
-            <div class="col-md-12">
-              Nenhum resultado encontrado!
-            </div>
-          </div>
-          <% } %>
-    </div>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-      crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-      var searchNoticia = function (value) {
-        window.location.href = `/noticias/${value}`;
-        // $.get(`/noticias/${value}`, function (data) {
-        //   console.log('data', data);
-        //   noticias = data;
-        // })
-      }
-    </script>
+        <script type="text/javascript">
+          var searchNoticia = function (value) {
+            window.location.href = `/noticias/${value}`;
+            // $.get(`/noticias/${value}`, function (data) {
+            //   console.log('data', data);
+            //   noticias = data;
+            // })
+          }
+        </script>
 
 </body>
 
