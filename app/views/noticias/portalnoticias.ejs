@@ -77,7 +77,7 @@
     </nav>
   </nav>
 
-
+  <!-- menu 1 -->
   <div class="container">
     <div class="row">
       <div class="col-md-8">
@@ -107,13 +107,14 @@
         </div>
       </div>
 
+      <!-- menu 2 -->
       <div class="col-md-4">
         <div class="dropdown">
           <button class="dropbtn">
             <i class="material-icons dropbtn-icon">more_vert</i>
           </button>
           <div id="myDropdown" class="dropdown-content">
-            <a href="#">Editar</a>
+            <a class="dropbtn-icon" id="myBtn" href="#">Editar</a>
             <a href="#">Excluir</a>
           </div>
         </div>
@@ -128,7 +129,6 @@
           <span class="noticia_data">
             <%= noticias[1].data_noticia %>
           </span>
-
           <br />
           <p class="noticia_resumo">
             <%= noticias[1].resumo %>
@@ -137,20 +137,20 @@
       </div>
     </div>
 
+    <!-- menu 3 -->
     <div class="row">
       <% for(var i = 2; i < noticias.length; i++){ %>
         <div class="col-md-4">
-            <div class="dropdown">
-                <button class="dropbtn">
-                  <i class="material-icons dropbtn-icon">more_vert</i>
-                </button>
-                <div id="myDropdown" class="dropdown-content">
-                  <a href="#">Editar</a>
-                  <a href="#">Excluir</a>
-                </div>
-              </div>
+          <div class="dropdown">
+            <button class="dropbtn">
+              <i class="material-icons dropbtn-icon">more_vert</i>
+            </button>
+            <div id="myDropdown" class="dropdown-content">
+              <a class="dropbtn-icon" id="myBtn" href="#">Editar</a>
+              <a href="#">Excluir</a>
+            </div>
+          </div>
           <div class="noticia_wrapper">
-
             <span class="noticia_autor">Por
               <%= noticias[i].autor %>
             </span>
@@ -170,49 +170,50 @@
     </div>
 
     <!-- Modal EDITAR-->
-     <div class="container">
+    <div class="container">
 
-        <!-- Modal -->
-          <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Cadastro de Notícias</h4>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><strong>Cadastro de Notícias</strong></h4>
+            </div>
+            <div class="modal-body">
+              <p>
+                <div class="form-group">
+                  <label for="pwd">Resumo:</label>
+                  <input type="text" class="form-control" id="resumo" name="resumo">
                 </div>
-                <div class="modal-body">
-                  <p><div class="form-group">
-                      <label for="pwd">Resumo:</label>
-                      <input type="text" class="form-control" id="resumo" name="resumo" <%= noticias[0].resumo %>>
-                    </div>
-      
-                    <div class="form-group">
-                      <label for="pwd">Autor:</label>
-                      <input type="text" class="form-control" id="autor" name="autor" >
-                    </div>
-      
-                    <div class="form-group">
-                      <label for="pwd">Data:</label>
-                      <input type="date" class="form-control" id="data_noticia" name="data_noticia">
-                    </div>
-      
-                    <div class="form-group">
-                      <label for="pwd">Notícia:</label>
-                      <textarea class="form-control" id="noticia" name="noticia"></textarea>
-                    </div></p>
+
+                <div class="form-group">
+                  <label for="pwd">Autor:</label>
+                  <input type="text" class="form-control" id="autor" name="autor">
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                <div class="form-group">
+                  <label for="pwd">Data:</label>
+                  <input type="date" class="form-control" id="data_noticia" name="data_noticia">
                 </div>
-              </div>
-              
+
+                <div class="form-group">
+                  <label for="pwd">Notícia:</label>
+                  <textarea class="form-control" id="noticia" name="noticia"></textarea>
+                </div>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
-          
-        </div>
 
+        </div>
+      </div>
+
+    </div>
 
     <div class="row ver_mais">
       <button type="button" class="btn btn-default">
@@ -222,8 +223,8 @@
 
   </div>
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-    crossorigin="anonymous"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script> -->
 
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
@@ -262,12 +263,13 @@
         if (active.length > 0)
           _closeDropdowns();
 
-        else {
+        else
+        {
           var element = $(event.target)
             .closest('.dropdown')
             .find('.dropdown-content');
 
-         element
+          element
             .addClass('active')
             .toggle("show");
         }
@@ -292,14 +294,14 @@
   </script>
 
 
-<!-- Modal -->
-<script>
-    $(document).ready(function(){
-        $("#myBtn").click(function(){
-            $("#myModal").modal();
-        });
+  <!-- Modal -->
+  <script>
+    $(document).ready(function () {
+      $("#myBtn").click(function () {
+        $("#myModal").modal();
+      });
     });
-    </script>
+  </script>
 
 
 </body>

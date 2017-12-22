@@ -91,6 +91,9 @@ margin: 0 auto;
   width: 64px;
 }
 
+.imgconstrucao{
+  width: 100%;
+}
 
 @-webkit-keyframes fade {
   from {opacity: .4} 
