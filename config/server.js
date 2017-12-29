@@ -19,6 +19,7 @@ app.use(expressValidator());
 
 consign()
     .include('app/routes')
+    .then('config/dbConnectionMongo.js')
     .then('config/dbConnection.js')
     .then('app/models')
     .then('app/controllers')

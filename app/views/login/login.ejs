@@ -10,7 +10,6 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
 
-
   <!-- JQuery -->
   <script src="js/jquery-2.2.1.js"></script>
 
@@ -22,7 +21,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- incluindo css -->
-  <link href="css/home.css" rel="stylesheet">
+  <link href="css/login.css" rel="stylesheet">
 
   <!-- favicon -->
   <link rel="shortcut icon" href="images/favicon.ico" />
@@ -34,44 +33,9 @@
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-            aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
           <a href="/">
             <img src="/images/logo.png" />
           </a>
-
-        </div>
-
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <i class="material-icons">account_circle</i>
-              <a href="/login" class="login">
-                <strong>LOGIN</strong>
-              </a>
-            </li>
-
-            <li>
-              <i class="material-icons">apps</i>
-              <a href="/servicos" class="servicos">
-                <strong>SERVIÇOS</strong>
-              </a>
-            </li>
-
-            <li>
-              <i class="material-icons">contact_mail</i>
-              <a href="/contato" class="contato">
-                <strong>CONTATO</strong>
-              </a>
-            </li>
-          </ul>
-
         </div>
       </div>
     </nav>
@@ -80,8 +44,34 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
     crossorigin="anonymous"></script>
 
-  <div class="imgconstrucao">
-    <img src="/images/em_construcao.png">
+  <div class="pageLogin">
+    <form action="/action_page.php">
+
+      <div class="container">
+        <div class="loginform">
+          <label>
+            <b>Login</b>
+          </label>
+          <span class="psw">Esqueceu seu
+            <a href="#">e-mail?</a>
+          </span>
+          <input type="text" placeholder="Informe o login" name="login" required>
+
+          <label>
+            <b>Senha</b>
+          </label>
+          <span class="psw">Esqueceu sua
+            <a href="#">senha?</a>
+          </span>
+          <input type="password" placeholder="Informe a senha" name="senha" required>
+
+          <button type="submit" >Login</button>
+          <input type="checkbox" checked="checked"> Lembre-me
+
+        </div>
+
+      </div>
+
   </div>
 
 </body>
