@@ -1,12 +1,12 @@
 module.exports = function (application)
 {
-  //rota para pagina cadastrologin
+  //ROTA PARA A PAGINA cadastrologin
   application.get('/cadastrologin', function (req, res)
   {
     application.app.controllers.cadastrologin_controller.cadastrologin(application, req, res);
   });
 
-  //rota para pagina cadastrar 
+  //ROTA PARA A PAGINA cadastrar
   {
     application.post('/cadastrar', function (req, res)
     {

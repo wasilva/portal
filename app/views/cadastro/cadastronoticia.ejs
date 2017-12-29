@@ -2,24 +2,18 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Portal de notícias</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Portal de notícias</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- JQuery -->
-  <script src="js/jquery-2.2.1.js"></script>
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
 
   <!-- bootstrap - link cdn -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
     crossorigin="anonymous">
-
-  <!-- incluindo css -->
-  <link href="css/style.css" rel="stylesheet">
 
   <!-- favicon -->
   <link rel="shortcut icon" href="images/favicon.ico" />
@@ -34,8 +28,7 @@
           <img src="/images/logo.png" />
         </a>
       </div>
-
-
+    </div>
   </nav>
 
 
@@ -63,27 +56,29 @@
             <form action="/noticias/salvar" method="POST">
               <div class="form-group">
                 <label for="titulo">Título:</label>
-                <input type="text" value="<%=noticia.titulo%>" class="form-control" id="titulo" name="titulo">
+                <input type="text" value="<%=noticia.titulo%>" class="form-control" id="titulo" placeholder="Informe o titulo da notícia"
+                  name="titulo">
               </div>
 
               <div class="form-group">
                 <label for="pwd">Resumo:</label>
-                <input type="text" value="<%=noticia.resumo%>" class="form-control" id="resumo" name="resumo">
+                <input type="text" value="<%=noticia.resumo%>" class="form-control" id="resumo" placeholder="Informe o resumo da notícia"
+                  name="resumo">
               </div>
 
               <div class="form-group">
                 <label for="pwd">Autor:</label>
-                <input type="text" value="<%=noticia.autor%>" class="form-control" id="autor" name="autor">
+                <input type="text" value="<%=noticia.autor%>" class="form-control" id="autor" placeholder="Informe o autor" name="autor">
               </div>
 
               <div class="form-group">
                 <label for="pwd">Data:</label>
-                <input type="date"  class="form-control" id="data_noticia" name="data_noticia">
+                <input type="date" class="form-control" id="data_noticia" name="data_noticia">
               </div>
 
               <div class="form-group">
                 <label for="pwd">Notícia:</label>
-                <textarea  class="form-control" id="noticia" name="noticia"></textarea>
+                <textarea class="form-control" id="noticia" placeholder="Informe a notícia" name="noticia"></textarea>
               </div>
 
               <button type="submit" class="btn btn-default">Cadastrar</button>
@@ -93,9 +88,6 @@
           </div>
         </div>
   </div>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-    crossorigin="anonymous"></script>
 
 </body>
 

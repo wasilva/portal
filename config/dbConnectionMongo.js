@@ -1,23 +1,14 @@
 /* */
-var mongo = require = ('mongodb')
+var mongo = require('mongodb')
 
-var connMongoDB =  function(){
-console.log('Entrou na funcao de conexao');
-  var db = new mongo.Db(
-    'wasinfo_db',
-    new mongo.Server(
-      'localhost',
-      27017,
-      {}
-    ),
-    {}
-  );
-  return db;
-
+var connMongoDB = function ()
+{
+  return new mongo.Db('wasinfo_db', new mongo.Server('localhost', 27017, {}), {});
 }
 
-module.export = function(){
-  return conMongoDB;
+module.exports = function ()
+{
+  return connMongoDB;
 }
 
 

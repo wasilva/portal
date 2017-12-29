@@ -19,7 +19,14 @@ module.exports.cadastrar = function (application, req, res)
     //res.send('Existem campos obrigatórios em vazio');
     return;
   }
-  //var usuariosDAO = new application.app.models.usuariosDAO;
+  
+  //MODULO DE CONEXÃO DO BANCO DADOS MONGODB
+  var connection = application.config.dbConnectionMongo;
+  
+  //CLASSE PARA MANIPULAR OBJETOS DO FORMULARIO PARA O BANCO DE DADOS DO MONGODB - MODEL
+  var UsuariosDAO = new application.app.models.UsuariosDAO(connection);
+  UsuariosDAO.inserirLogin(dadosForm);
+
   res.send('Podemos cadastrar');
 
 }
