@@ -45,7 +45,7 @@ span.psw {
 /* Home icone */
 .material-icons{
   margin: 5px 0px 0 10px;
-  float: right;
+  float: left;
 }
 
 .loginform{

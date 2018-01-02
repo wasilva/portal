@@ -31,7 +31,7 @@ UsuariosDAO.prototype.autenticar = function (cadastro_login, req, res) {
         if (req.session.autorizado){
           res.redirect("/erp");
         }else{
-          res.render("/login", { validacao:{}}); 
+          res.render("login/login", { validacao:{}, dadosForm:{}}); 
         }
 
       });
