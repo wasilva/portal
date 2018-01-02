@@ -1,3 +1,6 @@
+//IMPORTAR MODULO DE CRYPTO
+var crypto = require("crypto");
+
 function UsuariosDAO(connection) {
   this._connection = connection();
 }
@@ -6,6 +9,14 @@ function UsuariosDAO(connection) {
 UsuariosDAO.prototype.inserirLogin = function (cadastro_login) {
   this._connection.open(function (err, mongoclient) {
     mongoclient.collection("cadastro_login", function (err, collection) {
+
+      //CRIPTOGRAFA A SENHA  
+      var senha_criptografada = crypto.createHash("md5").update(cadastro_login.senha).digest("hex");
+
+      //CONVERTE A SENHA DIGITADA NA SENHA CRIPTOGRAFADA
+      cadastro_login.senha = senha_criptografada
+      
+      //console.log(senha_criptografada);
       collection.insert(cadastro_login);
 
       mongoclient.close();
@@ -17,6 +28,13 @@ UsuariosDAO.prototype.inserirLogin = function (cadastro_login) {
 UsuariosDAO.prototype.autenticar = function (cadastro_login, req, res) {
   this._connection.open(function (err, mongoclient) {
     mongoclient.collection("cadastro_login", function (err, collection) {
+
+      //RECUPERA A SENHA CRIPTOGRAFADA
+      var senha_criptografada = crypto.createHash("md5").update(cadastro_login.senha).digest("hex");
+      
+      //CONVERTE A SENHA CRIPTOGRAFADA NA SENHA DIGITADA
+      cadastro_login.senha = senha_criptografada
+
       collection.find(cadastro_login).toArray(function (err, result) {
 
         if (result[0] != undefined){
