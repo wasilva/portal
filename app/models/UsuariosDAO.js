@@ -11,7 +11,7 @@ UsuariosDAO.prototype.inserirLogin = function (cadastro_login) {
     mongoclient.collection("cadastro_login", function (err, collection) {
 
       //CRIPTOGRAFA A SENHA  
-      var senha_criptografada = crypto.createHash("md5").update(cadastro_login.senha).digest("hex");
+      var senha_criptografada = crypto.createHash("sha1").update(cadastro_login.senha).digest("hex");
 
       //CONVERTE A SENHA DIGITADA NA SENHA CRIPTOGRAFADA
       cadastro_login.senha = senha_criptografada
@@ -30,7 +30,7 @@ UsuariosDAO.prototype.autenticar = function (cadastro_login, req, res) {
     mongoclient.collection("cadastro_login", function (err, collection) {
 
       //RECUPERA A SENHA CRIPTOGRAFADA
-      var senha_criptografada = crypto.createHash("md5").update(cadastro_login.senha).digest("hex");
+      var senha_criptografada = crypto.createHash("sha1").update(cadastro_login.senha).digest("hex");
       
       //CONVERTE A SENHA CRIPTOGRAFADA NA SENHA DIGITADA
       cadastro_login.senha = senha_criptografada
