@@ -3,6 +3,7 @@ module.exports.login = function(application, req, res){
 }
 
 module.exports.autenticar = function(application, req, res){
+  
   var dadosForm = req.body;
 
   req.assert('login', 'Login não pode ser vazio').notEmpty();
@@ -10,13 +11,16 @@ module.exports.autenticar = function(application, req, res){
 
   var erros = req.validationErrors();
   
-
   if(erros){
     res.render('login/login', { validacao: erros, dadosForm: dadosForm });
     return;
   }
 
-  res.send('Sessão pode ser criada');
+  var connection = application.config.dbConnection;
+  var UsuariosDAO = new  application.app.models.UsuariosDAO(connection);
+  UsuariosDAO.autenticar(dadosForm, req, res);
+  
+ // res.send('Sessão pode ser criada');
 
 }
 

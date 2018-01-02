@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>WASINFO System</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- JQuery -->
+  <script src="js/jquery-2.2.1.js"></script>
+
+  <!-- bootstrap - link cdn -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/">
+          <img src="/images/logo.png" />
+        </a>
+      </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-cadastro" action="/cadastrarempresa" method="post">
+          <div class="form-group">
+            <label>
+              <b>Empresa</b>
+            </label>
+            <input type="text" class="form-control" placeholder="Informe o nome da empresa" name="empresa">
+          </div>
+
+          <div class="form-group">
+            <label>
+              <b>CNPJ</b>
+            </label>
+            <input type="text" class="form-control" placeholder="Informe o CNPJ" name="cnpj">
+          </div>
+
+          <div class="form-group">
+            <label>
+              <b>I.E.</b>
+            </label>
+            <input type="text" class="form-control" placeholder="Informe a Inscrição Estadual" name="inscricaoestadual">
+          </div>
+
+          <div class="form-group">
+            <label>
+              <b>I.M.</b>
+            </label>
+            <input type="text" class="form-control" placeholder="Informe a Inscrição Estadual" name="inscricaomunicipal">
+          </div>
+
+          <div class="form-group">
+            <label>
+              <b>Cidade</b>
+            </label>
+            <input type="text" class="form-control" placeholder="Informe a cidade" name="cidade">
+          </div>
+
+          <div class="form-group">
+            <label>
+              <b>Endereço</b>
+            </label>
+            <input type="text" class="form-control" placeholder="Informe o endereço" name="endereco">
+          </div>
+
+          <div class="form-group">
+            <label>
+              <b>Número</b>
+            </label>
+            <input type="text" class="form-control" placeholder="Informe o número" name="numero">
+          </div>
+
+          <div class="form-group">
+            <label>
+              <b>CEP</b>
+            </label>
+            <input type="text" class="form-control" placeholder="Informe o CEP" name="cep">
+          </div>
+
+          <div class="form-group">
+            <label>
+              <b>Complemento</b>
+            </label>
+            <input type="text" class="form-control" placeholder="Informe o complemento" name="complemento">
+          </div>
+
+
+          <button type="submit" class="btn btn-default">Cadastrar</button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
